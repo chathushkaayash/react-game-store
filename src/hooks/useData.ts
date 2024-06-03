@@ -56,9 +56,3 @@ const add = <T>(endpoint: string) => {
   console.log(endpoint);
 };
 
-const addNumbers = () => add<number>("/number");
-
-const addStrings = () => add<string>("/string");
-
-addNumbers();
-addStrings();
