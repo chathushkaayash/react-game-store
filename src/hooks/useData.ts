@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
+import apiClient from "../services/api-client3";
 import { AxiosRequestConfig, CanceledError } from "axios";
 import { string } from "zod";
 
@@ -8,7 +8,7 @@ export interface T {
   name: string;
 }
 
-interface FetchResponse<T> {
+export interface FetchResponse<T> {
   count: number;
   results: T[];
 }
@@ -55,4 +55,3 @@ export default useData;
 const add = <T>(endpoint: string) => {
   console.log(endpoint);
 };
-
