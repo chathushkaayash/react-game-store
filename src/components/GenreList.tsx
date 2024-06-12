@@ -9,8 +9,7 @@ import {
 } from "@chakra-ui/react";
 // import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
-import useGenres from "../react-query/hooks/useGenres";
-import { Genre } from "../react-query/services/genreService";
+import useGenres, { Genre } from "../hooks/useGenres";
 
 interface Props {
   selectedGenre: Genre | null;
@@ -18,7 +17,7 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, isLoading, error } = useGenres();  
+  const { data: genres, isLoading, error } = useGenres();
 
   if (error) return null;
   if (isLoading)
