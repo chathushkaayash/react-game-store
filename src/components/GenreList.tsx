@@ -10,17 +10,12 @@ import {
 // import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import useGenres, { Genre } from "../hooks/useGenres";
+import useGameQueryStore from "../store";
 
-interface Props {
-  selectedGenreId?: number;
-  onSelectGenre: (genre: Genre) => void;
-}
-
-const GenreList = ({
-  onSelectGenre,
-  selectedGenreId: selectedGenre,
-}: Props) => {
+const GenreList = () => {
   const { data: genres, isLoading, error } = useGenres();
+  const selectedGenreId =useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 
   if (error) return null;
   if (isLoading)
@@ -48,10 +43,10 @@ const GenreList = ({
               <Button
                 whiteSpace="normal"
                 textAlign="left"
-                fontWeight={genre.id === selectedGenre ? "bold" : ""}
+                fontWeight={genre.id === selectedGenreId ? "bold" : ""}
                 fontSize="lg"
                 variant="link"
-                onClick={() => onSelectGenre(genre)}
+                onClick={() => setSelectedGenreId(genre.id)}
               >
                 {genre.name}
               </Button>
