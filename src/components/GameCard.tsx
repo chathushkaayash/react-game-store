@@ -3,9 +3,9 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import Emoji from "./Emoji";
-import { Game } from "../hooks/useGames";
 import { Link, useNavigate } from "react-router-dom";
 import { transform } from "framer-motion";
+import { Game } from "../entities/Game";
 
 interface Props {
   game: Game;
